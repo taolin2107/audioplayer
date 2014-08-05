@@ -3,27 +3,18 @@
 <title>Audio Player</title>
 </head>
 <body>
-<audio id="media" src="" autoplay="true"></audio>  
+<audio id="media" src="" autoplay="true"></audio>
 </body>
 <script type="text/javascript" charset="utf-8">
-function getAudioFile(paras) {
+function getAudioFile() {
     var url = location.href;
-    var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
-    var paraObj = { };
-    for (i = 0; j = paraString[i]; i++) {
-         paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
-    }
-    var returnValue = paraObj[paras.toLowerCase()];
-    console.log(returnValue);
-    if (typeof (returnValue) == "undefined") {
-         return "";
-    } else {
-        return returnValue;
-    }
+    var paraString = url.substring(url.indexOf("=") + 1, url.length);
+    console.log(paraString);
+    return paraString;
 }
 window.onload = function() {
-    var _src = getAudioFile("audiofile");
-    var Media = document.getElementById("media"); 
+    var _src = getAudioFile();
+    var Media = document.getElementById("media");
     Media.src = _src;
 }
 </script>
