@@ -6,6 +6,7 @@
 <body>
 <br><font size="30">听听这是什么方言，点击播放：
 <button onclick="play();" style="height:70px; width:150px; font-size:40px">播放</button><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<audio id="media" src="" controls="controls" autoplay="false"></audio><br><br>
 <a href="http://www.appchina.com/app/com.cvte.dialect/">我也要来发一条方言^-^</a></font>
 </body>
 <script type="text/javascript" charset="utf-8">
@@ -14,6 +15,11 @@ function getAudioFile() {
     var paraString = url.substring(url.indexOf("=") + 1, url.length);
     console.log(paraString);
     return paraString;
+}
+window.onload = function() {
+    var _src = getAudioFile();
+    var Media = document.getElementById("media");
+    Media.src = _src;
 }
 var player = document.createElement("AUDIO");
 function play() {
