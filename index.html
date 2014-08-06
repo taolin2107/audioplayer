@@ -1,9 +1,12 @@
 <html>
 <head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Audio Player</title>
 </head>
 <body>
-<audio id="media" controls="controls" src="" autoplay="true"></audio>
+<br><font size="30">听听这是什么方言，点击播放：
+<button onclick="play();" style="height:70px; width:150px; font-size:40px">播放</button><br><br>
+<a href="http://www.appchina.com/app/com.cvte.dialect/">我也要来发一条方言^-^</a></font>
 </body>
 <script type="text/javascript" charset="utf-8">
 function getAudioFile() {
@@ -12,10 +15,10 @@ function getAudioFile() {
     console.log(paraString);
     return paraString;
 }
-window.onload = function() {
-    var _src = getAudioFile();
-    var Media = document.getElementById("media");
-    Media.src = _src;
+var player = document.createElement("AUDIO");
+function play() {
+    player.setAttribute("src", getAudioFile());
+    player.setAttribute("autoplay", "true");
 }
 </script>
 </html>
